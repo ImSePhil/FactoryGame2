@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import FactoryGame.WorldUtils;
+
 public class WorldSaver {
 
 	private String filename;

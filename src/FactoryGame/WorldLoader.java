@@ -1,7 +1,23 @@
 package FactoryGame;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import FactoryGame.WorldUtils;
+
 public class WorldLoader {
 
+	private final int TAG = 0;
+	private final int WIDTH = 1;
+	private final int HEIGHT = 2;
+	private final int DATA = 3;
 	private String path;
 	private World world;
 	private int chunksize = Game.chunksize;
@@ -12,19 +28,26 @@ public class WorldLoader {
 	private int blocksize = Game.blocksize;
 
 	public WorldLoader(String path) {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
-	}
-
-	private void buildTerrain() {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+		this.path = path;
 	}
 
 	public World getWorld() {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+		return world;
 	}
 
-	private void loadworld() {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+	public void load() throws Exception {
+		JSONParser parser = new JSONParser();
+		Object obj = parser.parse(new FileReader(new File(path)));
+		JSONArray array = (JSONArray) obj;
+		String key = (String) array.get(0);
+		switch (key) {
+		case "WORLD":
+			int chunksX = Integer.parseInt(String.valueOf(array.get(WIDTH)));
+			int chunksY = Integer.parseInt(String.valueOf(array.get(HEIGHT)));
+			world = new World(chunksX,chunksY);
+			world.fromJson(array.get(DATA),parser);
+			break;
+		}
 	}
 
 }

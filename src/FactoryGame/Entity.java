@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 public class Entity extends GameObject {
 	
@@ -24,16 +25,20 @@ public class Entity extends GameObject {
 	}
 
 	@Override
-	public void fromJson() {
-		
-	}
-
-	@Override
-	public JSONArray toJson() {
+	public JSONArray toJsonArray() {
 		return null;
 	}
 
-	
+	@Override
+	public JSONObject toJsonObject() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
-	
+	@Override
+	public void fromJson(Object jsonString, JSONParser parser) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

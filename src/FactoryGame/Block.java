@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 public class Block extends GameObject {
 	private BufferedImage image;
@@ -25,17 +26,15 @@ public class Block extends GameObject {
 
 	}
 
-	@Override
-	public void fromJson() {
-
-	}
-
-	@Override
+	@SuppressWarnings("unchecked")
 	public JSONArray toJsonArray() {
-		return null;
+		JSONArray array = new JSONArray();
+		array.add("BLOCK");
+		array.add(toJsonObject());
+		return array;
 	}
 
-	@Override
+	@SuppressWarnings("unchecked")
 	public JSONObject toJsonObject() {
 		JSONObject block = new JSONObject();
 		block.put("x", x);
@@ -43,8 +42,17 @@ public class Block extends GameObject {
 		block.put("id", material.getId());
 		block.put("height", height);
 		block.put("width", width);
-		System.out.println(block);
 		return block;
 	}
 
+	public static Block fromJson(String data, JSONParser parser) {
+		Block block = null;
+		
+		System.out.println(data);
+		
+		
+		
+		return block;
+	}
+	
 }
