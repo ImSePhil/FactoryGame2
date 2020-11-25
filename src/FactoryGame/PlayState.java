@@ -53,13 +53,13 @@ public class PlayState extends State {
 	}
 
 	@Override
-	public void keyPressed(KeyEvent e, int k) {
-		world.keyPressed(e,k);
+	public void keyPressed(KeyEvent e) {
+		world.keyPressed(e, e.getKeyCode());
 	}
 
 	@Override
-	public void keyReleased(KeyEvent e, int k) {
-		world.keyReleased(e,k);
+	public void keyReleased(KeyEvent e) {
+		world.keyReleased(e,e.getKeyCode());
 	}
 
 	@Override
@@ -109,15 +109,4 @@ public class PlayState extends State {
 	public void setWorld(World world) {
 		this.world = world;
 	}
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		
-	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		
-	}
-
 }

@@ -12,9 +12,9 @@ public class Zombie extends Enemy {
 	private List<BufferedImage> framesUp = new ArrayList<BufferedImage>();
 	private CharacterSpritesheet spritesheet;
 	private int subframe;
-	
-	protected Zombie(float x, float y, int width, int height) {
-		super(x, y, width, height);
+
+	protected Zombie(float x, float y, int width, int height, float speed) {
+		super(x, y, width, height, speed);
 	}
-	
+
 }
