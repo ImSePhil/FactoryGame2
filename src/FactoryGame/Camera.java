@@ -1,19 +1,18 @@
 package FactoryGame;
 
 public class Camera {
-
 	private Player player;
 
+	public Camera(Player player) {
+		this.player = player;
+	}
+
 	public int getCamX() {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+		return (int) (player.getX() + player.getWidth() / 2 - GameManager.width / 2);
 	}
 
 	public int getCamY() {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
-	}
+		return (int) (player.getY() + player.getHeight() / 2 - GameManager.height / 2);
 
-	public Camera(Player player) {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
 	}
-
 }

@@ -12,7 +12,8 @@ public class Game extends JFrame {
 	private boolean generate;
 	private WorldGenerator generator;
 	private static final long serialVersionUID = 1L;
-	public static Spritesheet textures = new Spritesheet("\\src\\textures.png", 16);
+	public static Spritesheet textures = new Spritesheet("\\src\\textures.png", 64);
+	public static CharacterSpritesheet sheet = new CharacterSpritesheet(64, 64, "PlayerSpriteSheet.png");
 	public static int windowHeight = 800;
 	public static int windowWidth = 1200;
 

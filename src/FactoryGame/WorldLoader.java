@@ -36,18 +36,7 @@ public class WorldLoader {
 	}
 
 	public void load() throws Exception {
-		JSONParser parser = new JSONParser();
-		Object obj = parser.parse(new FileReader(new File(path)));
-		JSONArray array = (JSONArray) obj;
-		String key = (String) array.get(0);
-		switch (key) {
-		case "WORLD":
-			int chunksX = Integer.parseInt(String.valueOf(array.get(WIDTH)));
-			int chunksY = Integer.parseInt(String.valueOf(array.get(HEIGHT)));
-			world = new World(chunksX,chunksY);
-			world.fromJson(array.get(DATA),parser);
-			break;
-		}
+		
 	}
 
 }

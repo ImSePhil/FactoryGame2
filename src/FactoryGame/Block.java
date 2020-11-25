@@ -1,5 +1,6 @@
 package FactoryGame;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
@@ -14,16 +15,16 @@ public class Block extends GameObject {
 	protected Block(float x, float y, int width, int height, Material material) {
 		super(x, y, width, height);
 		this.material = material;
+		this.image = material.getSprite();
 	}
 
-	@Override
 	public void update() {
 
 	}
 
-	@Override
 	public void render(Graphics2D g) {
-
+		g.setColor(Color.RED);
+		g.drawImage(image, (int) x, (int) y, width, height, null);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -45,14 +46,4 @@ public class Block extends GameObject {
 		return block;
 	}
 
-	public static Block fromJson(String data, JSONParser parser) {
-		Block block = null;
-		
-		System.out.println(data);
-		
-		
-		
-		return block;
-	}
-	
 }

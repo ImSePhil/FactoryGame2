@@ -1,6 +1,6 @@
 package FactoryGame;
 
-public abstract class GameObject implements Updatable, Renderable{
+public abstract class GameObject{
 
 	protected float x;
 	protected float y;

@@ -19,9 +19,9 @@ public abstract class State {
 
 	public abstract void render(Graphics2D g);
 
-	public abstract void keyPressed(KeyEvent e, int k);
+	public abstract void keyPressed(KeyEvent e);
 
-	public abstract void keyReleased(KeyEvent e, int k);
+	public abstract void keyReleased(KeyEvent e);
 
 	public abstract void mousePressed(MouseEvent e);
 
@@ -38,11 +38,5 @@ public abstract class State {
 	public abstract void mouseClicked(MouseEvent e);
 
 	public abstract void keyTyped(KeyEvent e);
-
-	public abstract void keyPressed(KeyEvent e);
-
-	public abstract void keyReleased(KeyEvent e);
-
-	public abstract void actionPerformed(ActionEvent e);
 
 }

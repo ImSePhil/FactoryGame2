@@ -15,12 +15,12 @@ import java.awt.event.MouseListener;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class GameManager extends JPanel implements ActionListener, KeyListener, MouseListener, Updatable{
+public class GameManager extends JPanel implements ActionListener, KeyListener, MouseListener{
 	private static final long serialVersionUID = 1L;
 	private GameStateManager gsm;
-	private static int height;
+	public static int height;
 	private Timer timer;
-	private static int width;
+	public static int width;
 
 	public GameManager() {
 		super();
@@ -50,6 +50,7 @@ public class GameManager extends JPanel implements ActionListener, KeyListener, 
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		gsm.render(g2);
+		
 		
 	}
 	
@@ -99,9 +100,7 @@ public class GameManager extends JPanel implements ActionListener, KeyListener, 
 		repaint();
 	}
 
-	@Override
 	public void update() {
 		gsm.update();
 	}
-
 }

@@ -5,7 +5,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import FactoryGame.WorldUtils;
 
 public class WorldSaver {
 
@@ -18,11 +17,7 @@ public class WorldSaver {
 	}
 
 	public void save() throws IOException {
-		File f = new File(filename);
-		FileWriter writer = new FileWriter(f);
-		BufferedWriter bufferedWriter = new BufferedWriter(writer);
-		bufferedWriter.write(world.toJsonArray().toJSONString());
-		bufferedWriter.close();
+		
 	}
 
 }

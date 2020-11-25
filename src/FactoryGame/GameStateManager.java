@@ -14,12 +14,12 @@ public class GameStateManager {
 
 	public GameStateManager(int state) {
 		states = new State[2];
-		states[1] = new PlayState(this); 
+		states[1] = new PlayState(this);
 		this.state = state;
 	}
 
 	public void render(Graphics2D g) {
-		states[state].render(g); 
+		states[state].render(g);
 	}
 
 	public void mouseClicked(MouseEvent e) {
@@ -56,10 +56,6 @@ public class GameStateManager {
 
 	public void keyPressed(KeyEvent e) {
 		states[state].keyPressed(e);
-	}
-
-	public void actionPerformed(ActionEvent e) {
-		states[state].actionPerformed(e);
 	}
 
 }
