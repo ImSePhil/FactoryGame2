@@ -1,12 +1,12 @@
 package FactoryGame;
 
+
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
 public class Block extends GameObject {
 	private BufferedImage image;
