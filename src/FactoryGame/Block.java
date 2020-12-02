@@ -1,6 +1,5 @@
 package FactoryGame;
 
-
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
@@ -22,9 +21,10 @@ public class Block extends GameObject {
 
 	}
 
-	public void render(Graphics2D g) {
+	public void render(Graphics2D g, Camera camera) {
 		g.setColor(Color.RED);
-		g.drawImage(image, (int) x, (int) y, width, height, null);
+		Renderer.drawImage(g, camera, image, (int) x, (int) y);
+		// g.drawImage(image, (int) x, (int) y, width, height, null);
 	}
 
 	@SuppressWarnings("unchecked")

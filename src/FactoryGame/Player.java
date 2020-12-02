@@ -73,8 +73,9 @@ public class Player extends Entity {
 		}
 	}
 
-	protected void render(Graphics2D g) {
-		g.drawImage(_frames.get(frame), (int) x, (int) y, 64, 64, null);
+	protected void render(Graphics2D g,Camera camera) {
+		Renderer.drawImage(g, camera, _frames.get(frame), x, y);
+		//g.drawImage(_frames.get(frame), (int) x, (int) y, 64, 64, null);
 	}
 
 	public void keyReleased(KeyEvent e) {

@@ -54,10 +54,11 @@ public class World {
 	public void render(Graphics2D g) {
 		for (Chunk[] _chunks : chunks) {
 			for (Chunk chunk : _chunks) {
-				chunk.render(g);
+				chunk.render(g,camera);
 			}
 		}
-		player.render(g);
+		player.render(g,camera);
+		//g.drawString(camera.getCamX() + ", " + camera.getCamY(),20, 20);
 	}
 
 	public void generateBlockAt(int x, int y, int id) {

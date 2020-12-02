@@ -7,11 +7,11 @@ public class Camera {
 		this.player = player;
 	}
 
-	public int getCamX() {
+	public int getX() {
 		return (int) (player.getX() + player.getWidth() / 2 - GameManager.width / 2);
 	}
 
-	public int getCamY() {
+	public int getY() {
 		return (int) (player.getY() + player.getHeight() / 2 - GameManager.height / 2);
 
 	}

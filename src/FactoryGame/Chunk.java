@@ -19,10 +19,10 @@ public class Chunk{
 		this.blocksY = chunksize;
 	}
 
-	public void render(Graphics2D g) {
+	public void render(Graphics2D g, Camera camera) {
 		for (Block[] _blocks : blocks) {
 			for (Block block : _blocks) {
-				block.render(g);
+				block.render(g,camera);
 			}
 		}
 	}
