@@ -17,7 +17,7 @@ public class PlayState extends State {
 	public PlayState(GameStateManager gsm) {
 		super(gsm);
 		world = generateNewWorld("World.json", 64);
-		gui = new GUI(Game.windowWidth, Game.windowHeight,this);
+		gui = new GUI(Game.windowWidth, Game.windowHeight);
 	}
 
 	public World loadWorld(String filename) {
@@ -115,9 +115,5 @@ public class PlayState extends State {
 
 	public void setWorld(World world) {
 		this.world = world;
-	}
-
-	public Player getPlayer() {
-		return world.getPlayer();
 	}
 }

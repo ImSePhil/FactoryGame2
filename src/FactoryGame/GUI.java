@@ -1,45 +1,37 @@
 package FactoryGame;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.MouseWheelEvent;
 
 public class GUI {
 	private int width, height;
-	private int slots = 10;
 	private int selected = 0;
-	private PlayState playState;
 
-	public GUI(int width, int height, PlayState playState) {
+	public GUI(int width, int height) {
 		this.width = width;
 		this.height = height;
-		this.playState = playState;
 	}
 
 	public void render(Graphics2D g) {
-		for (int i = 0; i < slots; i++) {
-			g.drawImage(GuiAssets.Slot.getSprite(), width / 2 - 32 - 4 * 64 - 32 + i * 64, height - 64, null);
-		}
-		g.drawImage(GuiAssets.SlotSelected.getSprite(), width / 2 - 32 - 4 * 64 - 32 + selected * 64, height - 64,
-				null);
-		for (int i = 0; i < 10; i++) {
-			if (i * 10 < playState.getPlayer().getHealth())
-				g.drawImage(Particles.HeartFull.getSprite(), width / 2 - 32 - 4 * 64 - 32 + i * 32, height - 96, null);
-			else
-				g.drawImage(Particles.HeartEmpty.getSprite(), width / 2 - 32 - 4 * 64 - 32 + i * 32, height - 96, null);
-			if (i * 10 < playState.getPlayer().getStamina())
-				g.drawImage(Particles.StaminaFull.getSprite(), width / 2 - 32 - 4 * 64 - 32 + i * 32 + 320, height - 96,
-						null);
-			else
-				g.drawImage(Particles.StaminaEmpty.getSprite(), width / 2 - 32 - 4 * 64 - 32 + i * 32 + 320,
-						height - 96, null);
-
-		}
-
+		// Zeit und Datum
+		String time = "12:30 19 Dec. 1985";
+		g.setFont(new Font(g.getFont().getFontName(), Font.PLAIN, 30)); 
+		
+		int timeWidth = g.getFontMetrics().stringWidth(time);
+		int timeHeight = g.getFont().getSize();
+		g.setColor(Game.darkGrey);
+		g.fillRect(width/2-timeWidth/2-4,0 , timeWidth+8, timeHeight+8);
+		g.setColor(Game.lightGrey);
+		g.drawRect(width/2-timeWidth/2-3, 1, timeWidth+5, timeHeight+5);
+		g.setColor(Color.black);
+		g.drawString(time, width/2-timeWidth/2, timeHeight);
 	}
 
 	public void update() {
-
+		width = Game.currentWindowWidth;
+		height = Game.currentWindowHeight;
 	}
 
 	public void mouseWheelMoved(MouseWheelEvent e) {

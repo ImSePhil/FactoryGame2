@@ -18,7 +18,6 @@ public class World {
 	private int chunksX;
 	private int chunksY;
 	private String path;
-	private Player player;
 	private Camera camera;
 
 	public World(int chunksX, int chunksY) {
@@ -30,8 +29,7 @@ public class World {
 				chunks[y][x] = new Chunk(Game.chunksize);
 			}
 		}
-		player = new Player(64, 64, 64, 64, 4);
-		camera = new Camera(player);
+		camera = new Camera();
 	}
 
 	public int getChunksX() {
@@ -48,7 +46,7 @@ public class World {
 				chunk.update();
 			}
 		}
-		player.update();
+		camera.update();
 	}
 
 	public void render(Graphics2D g) {
@@ -57,8 +55,6 @@ public class World {
 				chunk.render(g,camera);
 			}
 		}
-		player.render(g,camera);
-		//g.drawString(camera.getCamX() + ", " + camera.getCamY(),20, 20);
 	}
 
 	public void generateBlockAt(int x, int y, int id) {
@@ -105,7 +101,7 @@ public class World {
 		case KeyEvent.VK_W:
 		case KeyEvent.VK_S:
 		case KeyEvent.VK_A:
-			player.keyPressed(e);
+			camera.keyPressed(e, k);
 		}
 	}
 
@@ -115,12 +111,7 @@ public class World {
 		case KeyEvent.VK_W:
 		case KeyEvent.VK_S:
 		case KeyEvent.VK_A:
-			player.keyReleased(e);
+			camera.keyReleased(e, k);
 		}
 	}
-
-	public Player getPlayer() {
-		return player;
-	}
-
 }
