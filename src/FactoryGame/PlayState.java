@@ -1,5 +1,6 @@
 package FactoryGame;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
@@ -11,10 +12,12 @@ import java.io.IOException;
 
 public class PlayState extends State {
 	private World world;
+	private GUI gui;
 	
 	public PlayState(GameStateManager gsm) {
 		super(gsm);
 		world = generateNewWorld("World.json", 64);
+		gui = new GUI(Game.windowWidth, Game.windowHeight,this);
 	}
 
 	public World loadWorld(String filename) {
@@ -45,11 +48,14 @@ public class PlayState extends State {
 	@Override
 	public void update() {
 		world.update();
+		gui.update();
 	}
 
 	@Override
 	public void render(Graphics2D g) {
+		g.setColor(Color.black);
 		world.render(g);
+		gui.render(g);
 	}
 
 	@Override
@@ -80,6 +86,7 @@ public class PlayState extends State {
 	@Override
 	public void mouseWheelMoved(MouseWheelEvent e) {
 		world.mouseWheelMoved(e);
+		gui.mouseWheelMoved(e);
 	}
 
 	@Override
@@ -108,5 +115,9 @@ public class PlayState extends State {
 
 	public void setWorld(World world) {
 		this.world = world;
+	}
+
+	public Player getPlayer() {
+		return world.getPlayer();
 	}
 }

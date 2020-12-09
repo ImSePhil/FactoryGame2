@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
 
 public class GameStateManager {
 
@@ -56,6 +57,10 @@ public class GameStateManager {
 
 	public void keyPressed(KeyEvent e) {
 		states[state].keyPressed(e);
+	}
+
+	public void mouseWheelMoved(MouseWheelEvent e) {
+		states[state].mouseWheelMoved(e);
 	}
 
 }

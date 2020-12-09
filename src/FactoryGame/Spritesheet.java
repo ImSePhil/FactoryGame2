@@ -21,7 +21,6 @@ public class Spritesheet {
 	private void loadImage() {
 		File f = new File(path);
 		try {
-			System.out.println(f.getAbsolutePath());
 			spritesheet = ImageIO.read(f);
 		} catch (Exception e) {
 			e.printStackTrace();

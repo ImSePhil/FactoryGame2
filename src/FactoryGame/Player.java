@@ -7,9 +7,9 @@ import java.util.List;
 
 public class Player extends Entity {
 
-	private float maxHealth;
+	private float maxHealth = 100;
 	private float health = maxHealth;
-	private float maxSaturation;
+	private float maxSaturation = 100;
 	private float saturation = maxSaturation;
 	private CharacterSpritesheet spritesheet;
 	private float vSpeed, hSpeed;
@@ -94,5 +94,13 @@ public class Player extends Entity {
 			break;
 
 		}
+	}
+
+	public float getHealth() {
+		return health;
+	}
+
+	public float getStamina() {
+		return saturation;
 	}
 }

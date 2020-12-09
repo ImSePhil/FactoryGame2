@@ -11,11 +11,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-public class GameManager extends JPanel implements ActionListener, KeyListener, MouseListener{
+public class GameManager extends JPanel implements ActionListener, KeyListener, MouseListener,MouseWheelListener{
 	private static final long serialVersionUID = 1L;
 	private GameStateManager gsm;
 	public static int height;
@@ -27,6 +29,7 @@ public class GameManager extends JPanel implements ActionListener, KeyListener, 
 		setPreferredSize(new Dimension(Game.windowWidth,Game.windowHeight));
 		addKeyListener(this);
 		addMouseListener(this);
+		addMouseWheelListener(this);
 		setFocusable(true);
 		requestFocus();
 		setBackground(Color.WHITE);
@@ -46,9 +49,11 @@ public class GameManager extends JPanel implements ActionListener, KeyListener, 
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
-		g2.setBackground(Color.BLACK);
+		g2.setBackground(Color.black);
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+		g2.setColor(Color.black);
+		g2.fillRect(0, 0, getWidth(), getHeight());
 		gsm.render(g2);
 		
 		
@@ -102,5 +107,10 @@ public class GameManager extends JPanel implements ActionListener, KeyListener, 
 
 	public void update() {
 		gsm.update();
+	}
+
+	@Override
+	public void mouseWheelMoved(MouseWheelEvent e) {
+		gsm.mouseWheelMoved(e);
 	}
 }

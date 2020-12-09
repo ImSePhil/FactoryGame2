@@ -16,10 +16,8 @@ public class WorldGenerator {
 				double value = Noise.noise(x*.1, y*.1);
 				value = Math.abs(value);
 				int intval = (int) (value*10);
-				System.out.print(intval + " ");
 				world.generateBlockAt(x,y,intval);				
 			}
-			System.out.println();
 		}
 	}
 
