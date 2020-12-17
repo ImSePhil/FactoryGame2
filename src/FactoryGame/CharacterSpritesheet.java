@@ -15,7 +15,7 @@ public class CharacterSpritesheet {
 	private List<BufferedImage> framesRight = new ArrayList<BufferedImage>();
 	private List<BufferedImage> framesLeft = new ArrayList<BufferedImage>();
 
-	public CharacterSpritesheet(int width, int height, String filename) {
+	public CharacterSpritesheet(String filename) {
 		file = new File("src\\" + filename);
 		try {
 			initFrames();

@@ -18,6 +18,7 @@ public class PlayState extends State {
 		super(gsm);
 		world = generateNewWorld("World.json", 64);
 		gui = new GUI(Game.windowWidth, Game.windowHeight);
+		CharacterGenerator gem = new CharacterGenerator();
 	}
 
 	public World loadWorld(String filename) {
