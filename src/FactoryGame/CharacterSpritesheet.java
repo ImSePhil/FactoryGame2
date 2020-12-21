@@ -9,42 +9,32 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 public class CharacterSpritesheet {
-	private File file;
+	private File fileBody;
+	private File fileHair;
+	private File fileShirt;
+	private File filePants;
+	private File fileBoots;
 	private List<BufferedImage> framesUp = new ArrayList<BufferedImage>();
 	private List<BufferedImage> framesDown = new ArrayList<BufferedImage>();
 	private List<BufferedImage> framesRight = new ArrayList<BufferedImage>();
 	private List<BufferedImage> framesLeft = new ArrayList<BufferedImage>();
+	private BufferedImage sheet;
 
-	public CharacterSpritesheet(String filename) {
-		file = new File("src\\" + filename);
-		try {
-			initFrames();
-		} catch (IOException e) {
-			e.printStackTrace();
+	public CharacterSpritesheet(String filebody,String filehair,String fileshirt, String filepants, String fileboots) {
+		String path = "src\\FactoryGame\\assets\\";
+		fileBody = new File(path + filebody);
+		fileHair = new File(path + filehair);
+		fileShirt = new File(path + fileshirt);
+		filePants = new File(path + filepants);
+		fileBoots = new File(path + fileboots);
+		
+		
+		for (int i = 0; i < 5; i++) {
+			System.out.println(i);
 		}
-	}
-
-	private void initFrames() throws IOException {
-		float time = System.nanoTime();
-		BufferedImage image = ImageIO.read(file);
-		for(int yy = 0; yy < 4; yy++) {
-			for(int xx = 0; xx < 8; xx++) {
-				int x = xx*64;
-				int y = yy*64;
-				if(yy == 0) {
-					framesDown.add(image.getSubimage(x, y, 64, 64));
-				}
-				if(yy == 1) {
-					framesLeft.add(image.getSubimage(x, y, 64, 64));
-				}
-				if(yy == 2) {
-					framesRight.add(image.getSubimage(x, y, 64, 64));
-				}
-				if(yy == 3) {
-					framesUp.add(image.getSubimage(x, y, 64, 64));
-				}
-			}
-		}
+		
+		
+		
 	}
 
 	public List<BufferedImage> getFramesUp() {
