@@ -20,7 +20,6 @@ public class Game extends JFrame{
 	public static Spritesheet guiTextures = new Spritesheet("\\src\\gui.png", 64);
 	public static int windowHeight = 800;
 	public static int windowWidth = 1200;
-	public static Spritesheet particleTextures = new Spritesheet("\\src\\particles.png", 32);
 	public static int currentWindowWidth;
 	public static int currentWindowHeight;
 	public static Color lightGrey = new Color(166,166,166);
